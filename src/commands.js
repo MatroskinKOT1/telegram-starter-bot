@@ -16,7 +16,9 @@ export function registerCommands(bot) {
 
   bot.command("ping", (ctx) => ctx.reply("pong"))
 
-  bot.command("id", (ctx) => ctx.reply(`Chat id: ${ctx.chat.id}\nYour id: ${ctx.from?.id ?? "unknown"}`))
+  bot.command("id", (ctx) => ctx.reply(
+  `ID группы: ${ctx.chat.id}\nID темы: ${ctx.message.message_thread_id ?? "Не определён"}\nВаш ID: ${ctx.from?.id ?? "неизвестен"}`
+))
 
   bot.callbackQuery("ping", (ctx) => ctx.answerCallbackQuery({ text: "pong" }))
 
